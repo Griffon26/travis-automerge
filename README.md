@@ -1,4 +1,4 @@
-# travis-automerge
+# Travis-Automerge
 
 #Auto-merging successful builds from Travis CI
 
