@@ -18,7 +18,7 @@ First go to GitHub’s personal access tokens page. Here, you can generate a new
 
 Personal access tokens page
 
-You can set access controls for this token in the next page. In our case, we only need to allow public repository access.
+You can set access controls for this token in the next page. In our case, we only need to allow public repository (public_repo) access.
 
 Token access controls
 
@@ -40,7 +40,7 @@ You also need to have a script to do the actual deployment. You can use the scri
 after_success:
   - "curl -o /tmp/travis-automerge https://raw.githubusercontent.com/cdown/travis-automerge/master/travis-automerge"
   - "chmod a+x /tmp/travis-automerge"
-  - "BRANCHES_TO_MERGE_REGEX='^f/' BRANCH_TO_MERGE_INTO=develop GITHUB_REPO=cdown/srt /tmp/travis-automerge"
+  - "BRANCHES_TO_MERGE_REGEX='' BRANCH_TO_MERGE_INTO=<your_branch> GITHUB_REPO=<your_repo_after_github.com/> /tmp/travis-automerge"
 
 BRANCH_TO_MERGE_REGEX is a regex that the current branch should match if a merge will take place. In my case, I limit it to feature branches (marked with f/), as there might be other branches I want to stick around without merging.
 BRANCH_TO_MERGE_INTO is the branch to merge into as part of deployment. I use two branches; master, which contains the latest stable code, and deploy, which contains the development code. In my case, I merge into deploy on successful build.
